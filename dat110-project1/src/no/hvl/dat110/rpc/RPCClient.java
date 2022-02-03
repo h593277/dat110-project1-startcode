@@ -1,5 +1,7 @@
 package no.hvl.dat110.rpc;
 
+import java.net.Socket;
+
 import no.hvl.dat110.TODO;
 import no.hvl.dat110.messaging.*;
 
@@ -18,8 +20,7 @@ public class RPCClient {
 		// TODO - START
 		// connect using the underlying messaging layer connection
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		connection = msgclient.connect();
 		
 		// TODO - END
 	}
@@ -29,15 +30,27 @@ public class RPCClient {
 		// TODO - START
 		// disconnect/close the underlying messaging connection
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		connection.close();
 		
 		// TODO - END
 	}
 	
 	public byte[] call(byte rpcid, byte[] params) {
 		
-		byte[] returnval = null;
+		byte[] returnval;
+		
+		byte[] rpcrequest = RPCUtils.encapsulate(rpcid, params);
+		
+		Message message = new Message(rpcrequest);	
+		
+		
+		connection.send(message);
+		
+		Message replymessage = connection.receive();
+		
+		byte[] rpcreply = replymessage.getData();
+		
+		returnval = RPCUtils.decapsulate(rpcreply);
 		
 		// TODO - START 
 		
@@ -52,9 +65,6 @@ public class RPCClient {
 		according to the RPC message format
 			
 		*/
-				
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
 		
 		// TODO - END
 		return returnval;

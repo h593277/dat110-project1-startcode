@@ -10,8 +10,7 @@ public class Message {
 		
 		// TODO - START
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.constructor("Message"));
+		this.data = data;
 			
 		// TODO - END
 	}

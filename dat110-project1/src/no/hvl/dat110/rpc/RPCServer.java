@@ -40,15 +40,57 @@ public class RPCServer {
 		   byte rpcid = 0;
 		   Message requestmsg,replymsg;
 		   
+		   requestmsg = connection.receive();
+		   byte[] rpcrequest = requestmsg.getData();
+		   rpcid = rpcrequest[0];
+		   System.out.println("RPCServer håndterer id" + rpcid);
+		   
+		   RPCRemoteImpl rpcMethod = services.get(rpcid);
+		   
+		   byte[] rpcreply;
+		   
+		   if(rpcMethod == null)
+		   {
+			   System.out.println("Finner ikke metode");
+			   rpcreply = null;
+		   }
+		   else
+		   {
+			   byte[] params = RPCUtils.decapsulate(rpcrequest);
+			   byte[] returnval = rpcMethod.invoke(params);
+			   rpcreply = RPCUtils.encapsulate(rpcid, returnval);
+		   }
+		   
+		   replymsg = new Message(rpcreply);
+		   
+		   connection.send(replymsg);
+		   
+		   if(rpcid == 0)
+		   {
+			   stop = true;
+		   }
+		   
+		   
+//		   requestmsg = connection.receive();
+//		   
+//		   byte[] data = requestmsg.getData();
+//		   
+//		   rpcid = data[0];
+//		   
+//		   RPCRemoteImpl rpcMethod = services.get(rpcid);
+//		   
+//		   replymsg = new Message(rpcMethod.invoke(data));
+		   
+		   
+		  // connection.send(replymsg);
+		   
 		   // TODO - START
 		   // - receive Message containing RPC request
 		   // - find the identifier for the RPC method to invoke
 		   // - lookup the method to be invoked
 		   // - invoke the method
 		   // - send back message containing RPC reply
-			
-		   if (true)
-				throw new UnsupportedOperationException(TODO.method());
+		   
 		   
 		   // TODO - END
 		   
