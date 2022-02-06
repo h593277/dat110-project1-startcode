@@ -1,8 +1,6 @@
 package no.hvl.dat110.rpc;
 
 import java.nio.ByteBuffer;
-import java.util.Arrays;
-import no.hvl.dat110.TODO;
 import no.hvl.dat110.messaging.MessageUtils;
 
 public class RPCUtils {
@@ -20,12 +18,6 @@ public class RPCUtils {
 			rpcmsg[i+1] = payload[i];
 		}
 		
-		// TODO - START
-		
-		// Encapsulate the rpcid and payload in a byte array according to the  RPC message syntax
-		
-		// TODO - END
-		
 		return rpcmsg;
 	}
 	
@@ -38,13 +30,6 @@ public class RPCUtils {
 		{
 			payload[i] = rpcmsg[i+1];
 		}
-		
-		// TODO - START
-		
-		// Decapsulate the rpcid and payload in a byte array according to the  RPC message syntax
-		
-		
-		// TODO - END
 		
 		return payload;
 		
@@ -61,10 +46,6 @@ public class RPCUtils {
 		  encoded[i] = (byte) str.charAt(i);	
 		}
 		
-		// TODO - START 
-		
-		// TODO - END
-		
 		return encoded;
 	}
 	
@@ -73,10 +54,6 @@ public class RPCUtils {
 		String decoded = null; 
 		
 		decoded = new String(data);
-		
-		// TODO - START 
-		
-		// TODO - END
 		
 		return decoded;
 	}
@@ -87,10 +64,6 @@ public class RPCUtils {
 		
 		encoded = new byte[0];
 	
-		// TODO - START 
-				
-		// TODO - END
-		
 		return encoded;
 		
 	}
@@ -102,7 +75,6 @@ public class RPCUtils {
 		ByteBuffer bb = ByteBuffer.wrap(dataVoid);
 		
 		bb.getInt();
-		// TODO
 		
 		
 	}
@@ -137,10 +109,6 @@ public class RPCUtils {
 		
 		bb.putInt(x);
 		
-		// TODO - START 
-		
-		// TODO - END
-		
 		return encoded;
 	}
 	
@@ -152,11 +120,6 @@ public class RPCUtils {
 		ByteBuffer bb = ByteBuffer.wrap(data);
 		
 		decoded = bb.getInt();
-		
-		// TODO - START 
-		
-		
-		// TODO - END
 		
 		return decoded;
 		

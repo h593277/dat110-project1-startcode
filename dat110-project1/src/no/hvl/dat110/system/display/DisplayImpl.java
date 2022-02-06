@@ -1,6 +1,5 @@
 package no.hvl.dat110.system.display;
 
-import no.hvl.dat110.TODO;
 import no.hvl.dat110.rpc.RPCRemoteImpl;
 import no.hvl.dat110.rpc.RPCUtils;
 import no.hvl.dat110.rpc.RPCServer;
@@ -25,13 +24,6 @@ public class DisplayImpl extends RPCRemoteImpl {
 		write(write);
 				
 		reply = RPCUtils.marshallString(write); 
-		
-		
-		// TODO - START: 
-		// implement unmarshalling, call, and marshall for write RPC method
-		// look at how this is done in the SensorImpl class for the read method
-		
-		// TODO - END
 		
 		return reply;
 	}

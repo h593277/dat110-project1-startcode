@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import no.hvl.dat110.TODO;
-
 public class MessagingClient {
 	
 	private String server;
@@ -35,10 +33,6 @@ public class MessagingClient {
 			e.printStackTrace();
 		}
 		
-		// TODO - START
-		// create TCP socket for client and connection
-		
-		// TODO - END
 		return connection;
 	}
 }

@@ -71,29 +71,6 @@ public class RPCServer {
 		   }
 		   
 		   
-//		   requestmsg = connection.receive();
-//		   
-//		   byte[] data = requestmsg.getData();
-//		   
-//		   rpcid = data[0];
-//		   
-//		   RPCRemoteImpl rpcMethod = services.get(rpcid);
-//		   
-//		   replymsg = new Message(rpcMethod.invoke(data));
-		   
-		   
-		  // connection.send(replymsg);
-		   
-		   // TODO - START
-		   // - receive Message containing RPC request
-		   // - find the identifier for the RPC method to invoke
-		   // - lookup the method to be invoked
-		   // - invoke the method
-		   // - send back message containing RPC reply
-		   
-		   
-		   // TODO - END
-		   
 		   if (rpcid == RPCCommon.RPIDSTOP) {
 			   stop = true;
 		   }

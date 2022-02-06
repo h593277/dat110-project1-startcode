@@ -1,6 +1,5 @@
 package no.hvl.dat110.system.controller;
 
-import no.hvl.dat110.TODO;
 import no.hvl.dat110.rpc.RPCClient;
 import no.hvl.dat110.rpc.RPCClientStopStub;
 
@@ -26,16 +25,12 @@ public class Controller  {
 		RPCClientStopStub stopdisplay = new RPCClientStopStub(displayclient);
 		RPCClientStopStub stopsensor = new RPCClientStopStub(sensorclient);
 				
-		// TODO - START
 		display = new DisplayStub(displayclient);
 		sensor = new SensorStub(sensorclient);
 		
 		displayclient.connect();
 		sensorclient.connect();
 		
-		
-		// create local display and sensor stub objects
-		// connect to sensor and display RPC servers
 		
 		for(int i = 0; i < N; i++)
 		{
@@ -53,9 +48,6 @@ public class Controller  {
 			}
 		}
 		
-		
-		
-		// TODO - END
 		
 		stopdisplay.stop();
 		stopsensor.stop();
